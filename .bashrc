@@ -31,6 +31,11 @@ git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1] /'
 }
 
+# Homebrew Bash completion
+if [ -f /usr/local/etc/bash_completion ]; then
+    . /usr/local/etc/bash_completion
+fi
+
 ####
 # Colors!
 ####
@@ -58,20 +63,17 @@ PASTEL_GREEN256="\[\033[38;5;120m\]"
 PASTEL_YELLOW256="\[\033[38;5;221m\]"
 BRIGHT_GREEN="\[\033[38;5;34m\]"
 
-export GIT_EDITOR=vim
 export GIT_AUTHOR_NAME='Scott Frazer'
 export GIT_AUTHOR_EMAIL='scott.d.frazer@gmail.com'
-export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:$PATH
+export GIT_EDITOR='vim'
+export EDITOR='vim'
+export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/sbin
 export LD_LIBRARY_PATH=/usr/local/lib:~/lib
 export VIMRC=$HOME/.vimrc
 export PS1="$LIGHT_BLUE256\u$PASTEL_GREEN256 \w $PASTEL_YELLOW256\$(git_branch)$BRIGHT_GREEN\$$NO_COLOR "
-export EDITOR='mate'
-export GIT_EDITOR='mate -wl1'
 export LSCOLORS=hxfxcxdxbxegedabagHxHx
 alias grep="grep --color"
 alias ls="ls --color=auto"
 alias ll="ls --color=auto -l"
 alias la="ls --color=auto -la"
 alias tree='tree -Ca -I ".git|.svn|*.pyc|*.swp"'
-alias sandbox="ssh -A sfrazer@sandgate.bluestatedigital.com -p 2174"
-
