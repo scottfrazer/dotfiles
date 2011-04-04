@@ -1,0 +1,42 @@
+# ~/.gitconfig
+
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+
+[alias]
+  merge      = merge --no-ff
+  up         = pull origin
+  s          = status
+  st         = status
+  ci         = commit
+  co         = checkout
+  di         = diff
+  br         = branch -v
+  b          = branch
+  bra        = branch -a
+  sta        = stash
+  stat       = status
+  checkfiles = diff --name-only
+  lgg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+
+[branch]
+  autosetupmerge = false
+
+[core]
+	editor = vim
+  excludesfile=/Users/scott/.gitignore
+
+[user]
+	name = Scott Frazer
+  email = scott.d.frazer@gmail.com
+
+[push]
+	default = current
+
+[pull]
+	default = current
+
+[diff]
+	renamelimit = 1000
