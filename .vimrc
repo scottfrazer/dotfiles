@@ -44,7 +44,7 @@ set laststatus=2
 set encoding=utf-8
 let g:Powerline_symbols = 'fancy'
 let g:Powerline_cache_enabled = 1
-" <AddOns>
+" </AddOns>
 
 set tabstop=2
 set shiftwidth=2
