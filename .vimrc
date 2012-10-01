@@ -2,13 +2,55 @@ let mapleader = ","
 
 " Tabs should be 2 spaces
 set expandtab
-set tabstop=4
-set shiftwidth=4
-set path+=/home/sfrazer/sites/framework/test
-set path+=/home/sfrazer/sites/framework/htdocs
+set nocompatible
+filetype off
+
+" <Vundle>
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+" </Vundle>
+
+" <AddOns>
+Bundle 'tpope/vim-fugitive'
+Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'tpope/vim-rails.git'
+Bundle 'tsaleh/vim-align'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-speeddating'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'vim-scripts/taglist.vim'
+Bundle 'derekwyatt/vim-scala'
+
+" Colors
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'w0ng/vim-hybrid'
+
+Bundle 'scrooloose/nerdtree'
+Bundle 'jistr/vim-nerdtree-tabs'
+nmap <silent> <unique> <Leader>nt :NERDTreeToggle<CR>
+
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+
+Bundle 'ack.vim'
+nnoremap <leader>a :Ack<space>
+
+Bundle 'Lokaltog/vim-powerline'
+set laststatus=2
+set encoding=utf-8
+let g:Powerline_symbols = 'fancy'
+let g:Powerline_cache_enabled = 1
+" <AddOns>
+
+set tabstop=2
+set shiftwidth=2
 
 " Mouse use, if terminal supports it
-set mouse=a
+" set mouse=a
 
 " Terminal type... should probably match $TERM env variable
 set term=ansi
@@ -42,29 +84,16 @@ endif
 let g:colors_name="mine"
 
 " Exuberant ctags paths
-set tags=$FRAMEWORK/tags,tags
-nmap <silent> <unique> <Leader>ct :!ctags --recurse --fields=+iaS --extra=+q --languages=c,+php,+python<CR>
+set tags=tags
+nmap <silent> <unique> <Leader>ct :!ctags -x --recurse --fields=+iaS --extra=+q --languages=c,+php,+python,+java,+scala<CR>
 nmap <silent> <unique> <Leader>cs :cscope -bRuq<CR>:cs a .<CR>
 
 set t_Co=256
-colorscheme leo
+colorscheme hybrid
  
 " Tabbing
 vmap <Tab> >gv
 vmap <S-Tab> <gv
-
-" Taglist plugin
-filetype plugin on
-let Tlist_Auto_Open = 0
-let Tlist_Auto_Update = 1
-let Tlist_Show_One_File = 1
-map O :TlistOpen<CR>
-map C :TlistClose<CR>
-map T :TlistToggle<CR>
-
-
-" NERDTree plugin
-nmap <silent> <unique> <Leader>nt :NERDTreeToggle<CR>
 
 " window switching mappings... use ctrl + move key to move between windows
 map <C-h> <C-w>h
@@ -76,6 +105,15 @@ map <C-k> <C-w>k
 nmap <silent> <Leader>ev :e $MYVIMRC<CR>
 nmap <silent> <Leader>sv :so $MYVIMRC<CR>
 
+let Tlist_Auto_Open = 0
+let Tlist_Auto_Update = 1
+let Tlist_Show_One_File = 1
+map O :TlistOpen<CR>
+map C :TlistClose<CR>
+map T :TlistToggle<CR>
+
 " wildmenu settings for easier buffer switching
 set wildchar=<Tab> wildmenu wildmode=list:longest
 set wildcharm=<C-Z>
+
+filetype plugin indent on
