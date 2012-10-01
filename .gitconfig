@@ -1,5 +1,3 @@
-# ~/.gitconfig
-
 [color]
   diff = auto
   status = auto
@@ -25,18 +23,18 @@
   autosetupmerge = false
 
 [core]
-	editor = vim
-  excludesfile=/Users/scott/.gitignore
+  editor = vim
+  excludesfile=/Users/sfrazer/.gitignore
 
 [user]
-	name = Scott Frazer
+  name = Scott Frazer
   email = scott.d.frazer@gmail.com
 
 [push]
-	default = current
+  default = current
 
 [pull]
-	default = current
+  default = current
 
 [diff]
-	renamelimit = 1000
+  renamelimit = 1000
