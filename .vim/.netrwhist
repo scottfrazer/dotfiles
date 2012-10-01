@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/home/sfrazer/python/Python-3.1/.tags'
-let g:netrw_dirhist_2='/home/sfrazer/apicfg'
-let g:netrw_dirhist_3='/home/sfrazer/sites/framework/vendor/Horde/Constraint/ReflectionClass'
-let g:netrw_dirhist_4='/home/sfrazer/apicfg'
-let g:netrw_dirhist_5='/home/sfrazer/sites/framework/vendor/Blue/Cache'
