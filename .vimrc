@@ -12,7 +12,9 @@ Bundle 'gmarik/vundle'
 " </Vundle>
 
 " <AddOns>
+Bundle 'majutsushi/tagbar'
 Bundle 'tpope/vim-fugitive'
+Bundle 'vim-scripts/vim-json-bundle'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-rails.git'
@@ -32,6 +34,7 @@ Bundle 'w0ng/vim-hybrid'
 Bundle 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
 nmap <silent> <unique> <Leader>nt :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 
 Bundle 'L9'
 Bundle 'FuzzyFinder'
@@ -44,7 +47,7 @@ set laststatus=2
 set encoding=utf-8
 let g:Powerline_symbols = 'fancy'
 let g:Powerline_cache_enabled = 1
-" </AddOns>
+" <AddOns>
 
 set tabstop=2
 set shiftwidth=2
@@ -85,9 +88,11 @@ let g:colors_name="mine"
 
 " Exuberant ctags paths
 set tags=tags
-nmap <silent> <unique> <Leader>ct :!ctags -x --recurse --fields=+iaS --extra=+q --languages=c,+php,+python,+java,+scala<CR>
-nmap <silent> <unique> <Leader>cs :cscope -bRuq<CR>:cs a .<CR>
 
+nmap <silent> <unique> <Leader>ct :!ctags --recurse --fields=+iaS --extra=+q --languages=scala<CR>
+"nmap <silent> <unique> <Leader>ct :!ctags -x --recurse --fields=+iaS --extra=+q --languages=c,+php,+python,+java,+scala<CR>
+nmap <silent> <unique> <Leader>cs :cscope -bRuq<CR>:cs a .<CR>
+nmap <silent> <unique> <Leader>tb :TagbarToggle<CR>
 set t_Co=256
 colorscheme hybrid
  
@@ -117,3 +122,19 @@ set wildchar=<Tab> wildmenu wildmode=list:longest
 set wildcharm=<C-Z>
 
 filetype plugin indent on
+
+let g:tagbar_type_scala = {
+\ 'ctagstype' : 'Scala',
+\ 'kinds'     : [
+    \ 'p:packages:1',
+    \ 'V:values',
+    \ 'v:variables',
+    \ 'T:types',
+    \ 't:traits',
+    \ 'o:objects',
+    \ 'a:aclasses',
+    \ 'c:classes',
+    \ 'r:cclasses',
+    \ 'm:methods'
+\ ]
+\ }
