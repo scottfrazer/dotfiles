@@ -1,5 +1,16 @@
-rm -rf ~/.vim ~/.vimrc
+#!/bin/bash -l
 
+files=('.vim', '.vimrc', '.bashrc', '.dir_colors', '.gitconfig')
+
+for file in "${files[@]}"
+do
+  if [ -f $file ]
+  then
+    cp -r "~/${file}" "~/${file}.backup"
+  fi
+done
+
+rm -rf ~/.vim ~/.vimrc
 mkdir -p ~/.vim/autoload ~/.vim/bundle
 
 pushd ~/.vim/autoload
@@ -23,7 +34,12 @@ git clone https://github.com/scrooloose/nerdtree.git bundle/nerdtree
 git clone https://github.com/flazz/vim-colorschemes bundle/vim-colorschemes
 popd
 
-cp .vimrc ~
-cp .bashrc ~
-cp .dir_colors ~
-cp .gitconfig ~
+files=('.vimrc', '.bashrc', '.dir_colors', '.gitconfig')
+
+for file in "${files[@]}"
+do
+  if [ -f $file ]
+  then
+    cp -r $file ~
+  fi
+done
