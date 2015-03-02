@@ -1,17 +1,25 @@
-About
------
+Contains better environment setup for Vim and Bash
 
-Vim configuration:
+setup.sh
+========
+
+Run as `bash setup.sh` of `source setup.sh`.  This will make backups of files like `~/.bashrc`, `~/.vimrc` with the prefix `.backup`.
+
+.vimrc
+------
 
 * `.vimrc` file setup for Pathogen
 * Many common plugins (see setup.sh)
 
-`.bashrc`:
+.bashrc
+-------
 
 * Color definitions
 * Colorized and git aware prompt
 
-Setup
------
+ubuntu.sh
+=========
 
-run `sh setup.sh`.  This will overwrite any files in your home directory, like .bashrc, .vimrc
+For configuring Ubuntu systems (typically Docker containers but could be any Ubuntu system).  Contains common packages to be installed.
+
+Run as `bash ubuntu.sh`
