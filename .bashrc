@@ -52,6 +52,7 @@ export GIT_AUTHOR_EMAIL='scott.d.frazer@gmail.com'
 export GIT_EDITOR='vim'
 export GIT_SSL_NO_VERIFY=true
 
+export TERM='xterm-256color'
 export EDITOR='vim'
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/sbin:/usr/sbin
 export VIMRC=$HOME/.vimrc

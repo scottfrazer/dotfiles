@@ -1,22 +1,23 @@
 #!/bin/bash -l
 
-files=('.vim', '.vimrc', '.bashrc', '.dir_colors', '.gitconfig')
+set -x
 
-for file in "${files[@]}"
-do
-  if [ -f $file ]
-  then
-    cp -r "~/${file}" "~/${file}.backup"
+files=('.vim' '.vimrc' '.bashrc' '.dir_colors' '.gitconfig')
+for file in "${files[@]}"; do
+  if [ -f "$HOME/${file}" ]; then
+    cp -r "$HOME/${file}" "$HOME/${file}.backup"
   fi
 done
 
 rm -rf ~/.vim ~/.vimrc
 mkdir -p ~/.vim/autoload ~/.vim/bundle
 
+# Install Pathogen
 pushd ~/.vim/autoload
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 popd
 
+# Install Vim plugins
 pushd ~/.vim
 git clone https://github.com/gregsexton/MatchTag bundle/MatchTag
 git clone https://github.com/kien/ctrlp.vim.git bundle/ctrlp
@@ -33,12 +34,11 @@ git clone https://github.com/scrooloose/nerdtree.git bundle/nerdtree
 git clone https://github.com/flazz/vim-colorschemes bundle/vim-colorschemes
 popd
 
-files=('.vimrc', '.bashrc', '.dir_colors', '.gitconfig')
-
-for file in "${files[@]}"
-do
-  if [ -f $file ]
-  then
-    cp -r $file ~
+files=('.vimrc' '.bashrc' '.dir_colors' '.gitconfig')
+for file in "${files[@]}"; do
+  if [ -f ./$file ]; then
+    cp -r ./$file ~
   fi
 done
+
+touch ~/.my.bashrc
