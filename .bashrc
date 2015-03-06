@@ -4,7 +4,6 @@ function parse_hostname {
     echo $(uname -n | cut -f1 -d'.')
 }
 
-# branch name plus dirtiness
 function parse_git_branch {
     if git update-index -q --refresh 2>/dev/null; git diff-index --quiet --cached HEAD --ignore-submodules -- 2>/dev/null && git diff-files --quiet --ignore-submodules 2>/dev/null
         then dirty=""
@@ -22,24 +21,6 @@ function parse_git_branch {
     echo $branch
 }
 
-# Open a manpage in Preview, which can be saved to PDF
-function pman {
-  man -t "${1}" | open -f -a /Applications/Preview.app
-}
-
-# Open a manpage in the browser
-function bman {
-  man "${1}" | man2html | browser
-}
-
-# Homebrew Bash completion
-if [ -f /usr/local/etc/bash_completion ]; then
-    . /usr/local/etc/bash_completion
-fi
-
-####
-# Colors!
-####
 BLACK="\[\033[0;30m\]"
 BLUE="\[\033[0;32m\]"
 GREEN="\[\033[0;34m\]"
@@ -71,7 +52,7 @@ export GIT_AUTHOR_EMAIL='scott.d.frazer@gmail.com'
 export GIT_EDITOR='vim'
 export GIT_SSL_NO_VERIFY=true
 
-export M2_HOME=/home/unix/sfrazer/maven-3.0.4
+export TERM='xterm-256color'
 export EDITOR='vim'
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/sbin:/usr/sbin
 export VIMRC=$HOME/.vimrc
@@ -99,4 +80,4 @@ export PS1="[$ORANGE\u$NO_COLOR@$LIGHT_RED\$(parse_hostname)$NO_COLOR] $LIGHT_BL
 #export PS1="($LIGHT_BLUE256\u$NO_COLOR@$LIGHT_PURPLE\$(parse_hostname)$NO_COLOR) $LIGHT_RED\A$NO_COLOR\n$PASTEL_GREEN256\w $PASTEL_YELLOW256\$(parse_git_branch)$BRIGHT_GREEN\$$NO_COLOR "
 #export PS1="\u@\h \$(parse_git_branch)\$ "
 
-source ~/.bashrc.broad
+source ~/.my.bashrc
