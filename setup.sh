@@ -21,6 +21,7 @@ git clone git://github.com/majutsushi/tagbar.git bundle/tagbar
 git clone https://github.com/Lokaltog/vim-powerline bundle/vim-powerline
 git clone https://github.com/scrooloose/nerdtree.git bundle/nerdtree
 git clone https://github.com/flazz/vim-colorschemes bundle/vim-colorschemes
+git clone https://github.com/scottfrazer/vim-hermes bundle/vim-hermes
 popd
 
 cp .vimrc ~

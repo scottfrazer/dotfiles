@@ -5,6 +5,7 @@ let g:solarized_termcolors=256
 
 syntax enable
 filetype plugin indent on
+set autoindent
 set expandtab
 set nocompatible
 set pastetoggle=<leader>p
