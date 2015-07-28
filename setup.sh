@@ -5,7 +5,10 @@ set -x
 mkdir ~/bin
 curl http://beyondgrep.com/ack-2.14-single-file > ~/bin/ack && chmod 0755 !#:3
 
-files=('.vim' '.vimrc' '.bashrc' '.dir_colors' '.gitconfig')
+mkdir -p ~/.sbt/0.13/plugins
+cp plugins.sbt ~/.sbt/0.13/plugins
+
+files=('.vim' '.vimrc' '.bashrc' '.dir_colors' '.gitconfig', '.ctags')
 for file in "${files[@]}"; do
   if [ -f "$HOME/${file}" ]; then
     cp -r "$HOME/${file}" "$HOME/${file}.backup"
