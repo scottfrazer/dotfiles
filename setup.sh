@@ -2,6 +2,9 @@
 
 set -x
 
+mkdir ~/bin
+curl http://beyondgrep.com/ack-2.14-single-file > ~/bin/ack && chmod 0755 !#:3
+
 files=('.vim' '.vimrc' '.bashrc' '.dir_colors' '.gitconfig')
 for file in "${files[@]}"; do
   if [ -f "$HOME/${file}" ]; then
@@ -14,7 +17,7 @@ mkdir -p ~/.vim/autoload ~/.vim/bundle
 
 # Install Pathogen
 pushd ~/.vim/autoload
-curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+curl -LSso ~/.vim/autoload/pathogen.vim https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 popd
 
 # Install Vim plugins
