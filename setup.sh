@@ -39,6 +39,7 @@ git clone https://github.com/Lokaltog/vim-powerline bundle/vim-powerline
 git clone https://github.com/scrooloose/nerdtree.git bundle/nerdtree
 git clone https://github.com/flazz/vim-colorschemes bundle/vim-colorschemes
 git clone https://github.com/scottfrazer/vim-hermes bundle/vim-hermes
+git clone https://github.com/broadinstitute/vim-wdl bundle/vim-wdl
 popd
 
 files=('.vimrc' '.bashrc' '.dir_colors' '.gitconfig')
