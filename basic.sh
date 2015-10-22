@@ -11,3 +11,4 @@ mkdir ~/bin
 touch ~/.my.bashrc
 curl https://raw.githubusercontent.com/scottfrazer/dotfiles/master/.bashrc > ~/.bashrc
 curl https://raw.githubusercontent.com/scottfrazer/dotfiles/master/.dir_colors > ~/.dir_colors
+source ~/.bashrc
